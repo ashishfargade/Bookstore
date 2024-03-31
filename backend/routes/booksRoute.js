@@ -52,7 +52,7 @@ router.get('/:id', async(req, res) => {
         return res.status(200).json({
             data: book
          });
-    } catch (error) {
+    } catch (err) {
         console.log(err.message);
         res.status(500).send({ message: err.message });
     }
