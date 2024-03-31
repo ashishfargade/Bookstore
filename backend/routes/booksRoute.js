@@ -3,7 +3,6 @@ import { Book } from '../models/bookModel.js';
 
 const router = express.Router();
 
-
 router.post('/', async(req, res) => {
     try {
         if(
@@ -35,7 +34,7 @@ router.post('/', async(req, res) => {
 router.get('/', async(req, res) => {
     try {
         const books = await Book.find({});
-        return res.status(500).json({ 
+        return res.status(200).json({ 
             count: books.length,
             data: books
          });
@@ -50,7 +49,7 @@ router.get('/:id', async(req, res) => {
         const {id} = req.params;
         const book = await Book.findById(id);
 
-        return res.status(500).json({
+        return res.status(200).json({
             data: book
          });
     } catch (error) {
